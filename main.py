@@ -1,14 +1,15 @@
 # Mason Porter: Main, Menu, Encode
 
 def main():
+    encoded_password = ""
     while True:
         selection = menu()  # Prints menu and gets menu selection
 
         if selection == 1:  # Encode
-            encode()
+            encoded_password = encode()  # Asks user for input, returns encoded password
 
         if selection == 2:  # Decode
-            decode()
+            decode(encoded_password)  # Takes encoded password, decodes
 
         if selection == 3:  # Quit
             break  # Ends the program
@@ -30,9 +31,10 @@ def encode():
         encoded_password += item
     print("Your password has been encoded and stored!")
     print("")
+    return encoded_password
 
 
-def decode():
+def decode(encoded_password):
     pass
 
 
