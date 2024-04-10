@@ -1,5 +1,5 @@
 # Mason Porter: Main, Menu, Encode, Decode
-# (Insert Name)
+# (Hussam Saadi)
 
 
 def main():
