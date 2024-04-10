@@ -1,4 +1,6 @@
-# Mason Porter: Main, Menu, Encode
+# Mason Porter: Main, Menu, Encode, Decode
+# (Insert Name)
+
 
 def main():
     encoded_password = ""
@@ -9,7 +11,7 @@ def main():
             encoded_password = encode()  # Asks user for input, returns encoded password
 
         if selection == 2:  # Decode
-            decode(encoded_password)  # Takes encoded password, decodes
+            decode(encoded_password)  # Takes encoded password, decodes and prints
 
         if selection == 3:  # Quit
             break  # Ends the program
@@ -21,12 +23,8 @@ def encode():
     for item in original_password:
         item = int(item)
         item += 3
-        if item == 10:
-            item = 0
-        if item == 11:
-            item = 1
-        if item == 12:
-            item = 2
+        if item > 9:
+            item -= 10
         item = str(item)
         encoded_password += item
     print("Your password has been encoded and stored!")
@@ -35,7 +33,16 @@ def encode():
 
 
 def decode(encoded_password):
-    pass
+    decoded_password = ""
+    for item in encoded_password:
+        item = int(item)
+        item -= 3
+        if item < 0:
+            item += 10
+        item = str(item)
+        decoded_password += item
+    print(f"The encoded password is {encoded_password}, and the original password is {decoded_password}.")
+    print("")
 
 
 def menu():
